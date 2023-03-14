@@ -3,24 +3,27 @@ import React, {useState} from 'react';
 import {Button} from 'react-native-elements';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 import {auth, db} from '../../firebase/config';
-import {collection, getDocs, setDoc, doc} from 'firebase/firestore/lite';
-import {async} from '@firebase/util';
-
+import {setDoc, doc} from 'firebase/firestore/lite';
+import {useSignUp} from '../../hooks/useSignUp';
 const RegisterScreen = () => {
+  const {loading, signUp} = useSignUp();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const register = async () => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(async res => {
-        console.log('user added to firebase');
-        await setDoc(doc(db, 'users', res.user.uid), {
-          email: res.user.email,
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+  const [error, setError] = useState('');
+
+  const handleSignUp = async () => {
+    const result = await signUp(email, password);
+    if (!result.success) {
+      setError(result.error || 'Unknown error');
+    }
   };
+  if (loading) {
+    return (
+      <View>
+        <Text>Loading</Text>
+      </View>
+    );
+  }
   return (
     <SafeAreaView>
       <TextInput
@@ -33,7 +36,8 @@ const RegisterScreen = () => {
         onChangeText={text => setPassword(text)}
         value={password}
       />
-      <Button title="pressme" onPress={register} />
+      <Button title="pressme" onPress={handleSignUp} />
+      {error ? <Text>{error}</Text> : null}
     </SafeAreaView>
   );
 };
