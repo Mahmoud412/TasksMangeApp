@@ -5,11 +5,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import NewBoardModel from '../screens/NewBoardModel';
 import RegisterScreen from '../screens/Registration/RegisterScreen';
+import SettingScreen from '../screens/settingsScreen/SettingScreen';
 
 export type RootStackParamList = {
   Home: undefined;
   Board: undefined;
   Register: undefined;
+  Setting: undefined;
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -21,6 +23,11 @@ const Route = () => {
           name="Home"
           component={HomeScreen}
           options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Setting"
+          component={SettingScreen}
+          options={{headerShown: false, presentation: 'transparentModal'}}
         />
         <Stack.Screen
           name="Register"

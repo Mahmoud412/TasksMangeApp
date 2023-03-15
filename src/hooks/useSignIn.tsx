@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import {auth} from '.././firebase/config';
-import {useNavigation} from '@react-navigation/native';
 
 export const useSignIn = (): UseSignInResult => {
   const [loading, setLoading] = useState(false);

@@ -22,7 +22,6 @@ const RegisterScreen = () => {
   const [error, setError] = useState('');
   const navigation = useNavigation<RegisterScreenNavigationProps>();
 
-  const navigate = navigation.navigate('Home');
   const handleSignUp = async () => {
     const result = await signUp(email, password);
     if (!result.success) {
@@ -31,7 +30,7 @@ const RegisterScreen = () => {
       );
     }
     if (result.success) {
-      navigate;
+      navigation.navigate('Home');
     }
   };
   const handleSignIn = async () => {
@@ -42,7 +41,7 @@ const RegisterScreen = () => {
       );
     }
     if (result.success) {
-      navigate;
+      navigation.navigate('Home');
     }
   };
   if (loading) {
