@@ -37,7 +37,15 @@ const Route = () => {
         <Stack.Screen
           name="Board"
           component={NewBoardModel}
-          options={{presentation: 'modal'}}
+          options={{
+            presentation: 'modal',
+            headerShown: false,
+            title: 'Create new Board',
+            headerTintColor: 'gray',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
