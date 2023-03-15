@@ -21,22 +21,9 @@ const SettingScreen = () => {
     });
   };
   return (
-    <View
-      style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-end'}}>
-      <View
-        style={{
-          height: '40%',
-          width: '100%',
-          backgroundColor: '#fff',
-        }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            margin: 10,
-            padding: 10,
-          }}>
+    <View style={styles.contaier}>
+      <View style={styles.subContaier}>
+        <View style={styles.headerView}>
           <Text style={styles.text}>Settings</Text>
           <Icon
             name="closecircleo"
