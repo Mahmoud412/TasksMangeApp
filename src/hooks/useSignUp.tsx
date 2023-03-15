@@ -3,14 +3,7 @@ import React, {useState} from 'react';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 import {auth, db} from '.././firebase/config';
 import {setDoc, doc} from 'firebase/firestore/lite';
-export type SignUpResult = {
-  success: boolean;
-  error?: string | null;
-};
-type UseSignUpResult = {
-  loading: boolean;
-  signUp: (email: string, password: string) => Promise<SignUpResult>;
-};
+
 export const useSignUp = (): UseSignUpResult => {
   const [loading, setLoading] = useState(false);
   async function signUp(
@@ -25,6 +18,7 @@ export const useSignUp = (): UseSignUpResult => {
           console.log('user added to firebase');
           await setDoc(doc(db, 'users', res.user.uid), {
             email: res.user.email,
+            onwer_uid: res.user.uid,
           });
         },
       );
