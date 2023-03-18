@@ -6,12 +6,14 @@ import HomeScreen from '../screens/HomeScreen';
 import NewBoardModel from '../screens/NewBoardModel';
 import RegisterScreen from '../screens/Registration/RegisterScreen';
 import SettingScreen from '../screens/settingsScreen/SettingScreen';
+import BoardDetailsScreen from '../screens/BoardDetails/BoardDetailsScreen';
 
 export type RootStackParamList = {
   Home: undefined;
   Board: undefined;
   Register: undefined;
   Setting: undefined;
+  Details: {title: string; description: string};
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -35,16 +37,16 @@ const Route = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
+          name="Details"
+          component={BoardDetailsScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name="Board"
           component={NewBoardModel}
           options={{
             presentation: 'modal',
             headerShown: false,
-            title: 'Create new Board',
-            headerTintColor: 'gray',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
           }}
         />
       </Stack.Navigator>

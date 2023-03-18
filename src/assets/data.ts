@@ -18,3 +18,14 @@ export const data = [
     description: 'this is board description ',
   },
 ];
+
+export const groupName = [
+  {
+    id: 1,
+    name: 'Todo',
+  },
+  {
+    id: 2,
+    name: 'road',
+  },
+];

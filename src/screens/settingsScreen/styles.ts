@@ -7,9 +7,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   subContaier: {
-    height: '40%',
+    height: '50%',
     width: '100%',
-    backgroundColor: '#fff',
+    backgroundColor: '#181619',
   },
   headerView: {
     flexDirection: 'row',
@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     fontWeight: 'bold',
+    color: 'white',
   },
 });
 

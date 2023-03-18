@@ -5,7 +5,7 @@ import FormsHeader from '../components/FormsHeader';
 
 const NewBoardModel = () => {
   return (
-    <View>
+    <View style={{backgroundColor: '#1C1A1D', flex: 1}}>
       <FormsHeader />
       <NewboardForm />
     </View>

@@ -5,17 +5,12 @@ import BoardCard from '../components/Home/Board/BoardCard';
 import styles from '../components/Home/Board/styles';
 import {Icon} from '@rneui/themed';
 import {useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../navigation/Route';
-export type HomeScreenNavigationProps = NativeStackNavigationProp<
-  RootStackParamList,
-  'Home'
->;
+import {HomeScreenNavigationProps} from '../navigation/navigationTypes';
 
 const HomeScreen = () => {
   const navigation = useNavigation<HomeScreenNavigationProps>();
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor: '#1C1A1D', flex: 1}}>
       <Header />
       <BoardCard />
       <View>

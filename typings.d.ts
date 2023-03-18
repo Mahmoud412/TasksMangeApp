@@ -15,3 +15,7 @@ type UseSignUpResult = {
   loading: boolean;
   signUp: (email: string, password: string) => Promise<SignUpResult>;
 };
+
+type board = {
+  title: string;
+};
