@@ -19,3 +19,9 @@ type UseSignUpResult = {
 type board = {
   title: string;
 };
+type boards = {
+  createdAt: string;
+  description: string;
+  title: string;
+  userId: string;
+};

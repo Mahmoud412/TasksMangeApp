@@ -9,3 +9,8 @@ export type BoardScreenNavigationProps = NativeStackNavigationProp<
   RootStackParamList,
   'Details'
 >;
+
+export type NewBoardScreenNavigationProps = NativeStackNavigationProp<
+  RootStackParamList,
+  'Board'
+>;

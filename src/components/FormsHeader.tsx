@@ -4,10 +4,8 @@ import {Icon} from '@rneui/themed';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../navigation/Route';
 import {useNavigation} from '@react-navigation/native';
-export type NewBoardScreenNavigationProps = NativeStackNavigationProp<
-  RootStackParamList,
-  'Board'
->;
+import {NewBoardScreenNavigationProps} from '../navigation/navigationTypes';
+
 const FormsHeader = () => {
   const navigation = useNavigation<NewBoardScreenNavigationProps>();
   return (

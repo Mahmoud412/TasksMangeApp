@@ -1,19 +1,36 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import {Input, Button} from '@rneui/themed';
+import {auth, db} from '../../.././firebase/config';
+import {addDoc, collection} from 'firebase/firestore/lite';
+import {useNavigation} from '@react-navigation/native';
+import {HomeScreenNavigationProps} from '../header/Header';
+import {NewBoardScreenNavigationProps} from '../../../navigation/navigationTypes';
+import styles from './styles';
+import {documentId} from 'firebase/firestore';
 
 const NewboardForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-
+  const navigation = useNavigation<NewBoardScreenNavigationProps>();
+  const handelNewBoard = async () => {
+    const id = auth.currentUser?.uid;
+    try {
+      await addDoc(collection(db, 'Boards'), {
+        title: title,
+        description: description,
+        createdAt: new Date().toISOString(),
+        userId: id,
+      });
+    } catch (err) {
+      console.log(err);
+    } finally {
+      navigation.navigate('Home');
+    }
+  };
   return (
     <View>
-      <View
-        style={{
-          backgroundColor: '#46444D',
-          margin: 10,
-          borderRadius: 10,
-        }}>
+      <View style={styles.boardTitleInput}>
         <Input
           placeholder="Title"
           onChangeText={text => {
@@ -24,14 +41,7 @@ const NewboardForm = () => {
           maxLength={20}
         />
       </View>
-      <View
-        style={{
-          padding: 10,
-          backgroundColor: '#46444D',
-          height: '74%',
-          margin: 10,
-          borderRadius: 10,
-        }}>
+      <View style={styles.descriptionContainer}>
         <Input
           placeholder="Description"
           onChangeText={text => {
@@ -44,12 +54,9 @@ const NewboardForm = () => {
       </View>
       <View>
         <Button
+          onPress={handelNewBoard}
           title="Create"
-          buttonStyle={{
-            marginLeft: 10,
-            marginRight: 10,
-            backgroundColor: '#c0a8ea',
-          }}
+          buttonStyle={styles.addNewBoardButton}
           disabled={!title || !description}
         />
       </View>

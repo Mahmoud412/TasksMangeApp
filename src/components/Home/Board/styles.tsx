@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
   card: {
     borderRadius: 10,
     backgroundColor: '#353138',
+    borderColor: '#353138',
   },
   title: {
     color: 'white',
@@ -52,6 +53,23 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#915FDB',
     fontWeight: 'bold',
+  },
+  boardTitleInput: {
+    backgroundColor: '#46444D',
+    margin: 10,
+    borderRadius: 10,
+  },
+  descriptionContainer: {
+    padding: 10,
+    backgroundColor: '#46444D',
+    height: '74%',
+    margin: 10,
+    borderRadius: 10,
+  },
+  addNewBoardButton: {
+    marginLeft: 10,
+    marginRight: 10,
+    backgroundColor: '#c0a8ea',
   },
 });
 

@@ -1,5 +1,5 @@
 import {View, Text, TouchableOpacity, SafeAreaView} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import Header from '../components/Home/header/Header';
 import BoardCard from '../components/Home/Board/BoardCard';
 import styles from '../components/Home/Board/styles';
@@ -8,6 +8,7 @@ import {useNavigation} from '@react-navigation/native';
 import {HomeScreenNavigationProps} from '../navigation/navigationTypes';
 
 const HomeScreen = () => {
+  const [input, setInput] = useState('');
   const navigation = useNavigation<HomeScreenNavigationProps>();
   return (
     <SafeAreaView style={{backgroundColor: '#1C1A1D', flex: 1}}>
