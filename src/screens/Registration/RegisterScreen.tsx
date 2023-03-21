@@ -1,5 +1,5 @@
 import {View, Text, SafeAreaView, TextInput} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button} from 'react-native-elements';
 import {useSignUp} from '../../hooks/useSignUp';
 import {Input} from 'react-native-elements';
@@ -9,7 +9,6 @@ import {useSignIn} from '../../hooks/useSignIn';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../navigation/Route';
-
 export type RegisterScreenNavigationProps = NativeStackNavigationProp<
   RootStackParamList,
   'Register'

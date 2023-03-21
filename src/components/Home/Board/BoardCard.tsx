@@ -20,33 +20,21 @@ const BoardCard = () => {
   const dispatch = useAppDispatch();
   const navigation = useNavigation<HomeScreenNavigationProps>();
   const {boards, loading, error} = useAppSelector(state => state.boards);
-  // const getBoards = async () => {
-  //   const q = query(
-  //     collection(db, 'Boards'),
-  //     where('userId', '==', auth.currentUser?.uid),
-  //   );
-  //   const querySnapshot = await getDocs(q);
-  //   const arr: any[] = [];
-  //   querySnapshot.forEach(doc => {
-  //     arr.push(doc.data());
-  //   });
-  //   setBoards(arr);
-  // };
-  console.log(boards);
   useEffect(() => {
     dispatch(fetchBoards());
-  }, [dispatch]);
+  }, [dispatch, boards]);
   return (
     <ScrollView>
       {boards.map(item => (
         <TouchableOpacity
+          key={item.title}
           onPress={() =>
             navigation.navigate('Details', {
               title: item.title,
               description: item.description,
             })
           }>
-          <Card key={item.userId} containerStyle={styles.card}>
+          <Card containerStyle={styles.card}>
             <View>
               <Text style={styles.title}>{item.title}</Text>
               <Text style={styles.date}>{item.createdAt}</Text>

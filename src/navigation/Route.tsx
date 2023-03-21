@@ -7,6 +7,7 @@ import NewBoardModel from '../screens/NewBoardModel';
 import RegisterScreen from '../screens/Registration/RegisterScreen';
 import SettingScreen from '../screens/settingsScreen/SettingScreen';
 import BoardDetailsScreen from '../screens/BoardDetails/BoardDetailsScreen';
+import CreateNewGroup from '../components/Group/CreateNewGroup';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -14,6 +15,7 @@ export type RootStackParamList = {
   Register: undefined;
   Setting: undefined;
   Details: {title: string; description: string};
+  NewGroup: undefined;
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -44,6 +46,14 @@ const Route = () => {
         <Stack.Screen
           name="Board"
           component={NewBoardModel}
+          options={{
+            presentation: 'modal',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="NewGroup"
+          component={CreateNewGroup}
           options={{
             presentation: 'modal',
             headerShown: false,

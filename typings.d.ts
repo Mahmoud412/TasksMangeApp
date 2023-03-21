@@ -25,3 +25,14 @@ type boards = {
   title: string;
   userId: string;
 };
+type createNewBoardResult = {
+  success: boolean;
+  error?: string | null;
+};
+type useCreareNewBoardResult = {
+  loading: boolean;
+  createNewBoard: (
+    title: string,
+    description: string,
+  ) => Promise<CreateNewBoardResult>;
+};

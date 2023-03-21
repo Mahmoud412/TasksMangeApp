@@ -8,7 +8,6 @@ import {useNavigation} from '@react-navigation/native';
 import {HomeScreenNavigationProps} from '../navigation/navigationTypes';
 
 const HomeScreen = () => {
-  const [input, setInput] = useState('');
   const navigation = useNavigation<HomeScreenNavigationProps>();
   return (
     <SafeAreaView style={{backgroundColor: '#1C1A1D', flex: 1}}>

@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 17,
     fontWeight: '600',
+    margin: 10,
   },
   ScrollView: {
     marginVertical: 20,

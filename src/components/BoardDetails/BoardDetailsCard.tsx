@@ -57,22 +57,3 @@ const BoardDetailsCard = ({description}: Props) => {
 };
 
 export default BoardDetailsCard;
-
-{
-  /* <View style={{margin: 5, height: '100%', backgroundColor: 'green'}}>
-<View
-  style={{
-    padding: 10,
-    backgroundColor: 'blue',
-    borderRadius: 10,
-    margin: 10,
-    position: 'absolute',
-    zIndex: 1,
-  }}>
-  <Text style={{color: 'black', fontWeight: 'bold', fontSize: 17}}>
-    {name.name}
-  </Text>
-</View>
-</View>
- */
-}

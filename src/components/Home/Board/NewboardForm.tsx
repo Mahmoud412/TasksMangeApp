@@ -1,30 +1,24 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React, {useState} from 'react';
 import {Input, Button} from '@rneui/themed';
-import {auth, db} from '../../.././firebase/config';
-import {addDoc, collection} from 'firebase/firestore/lite';
 import {useNavigation} from '@react-navigation/native';
-import {HomeScreenNavigationProps} from '../header/Header';
 import {NewBoardScreenNavigationProps} from '../../../navigation/navigationTypes';
 import styles from './styles';
-import {documentId} from 'firebase/firestore';
-
+import {useCreateNewBoard} from '../../../hooks/useCreateNewBoard';
 const NewboardForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const {loading, createNewBoard} = useCreateNewBoard();
+  const [error, setError] = useState('');
   const navigation = useNavigation<NewBoardScreenNavigationProps>();
   const handelNewBoard = async () => {
-    const id = auth.currentUser?.uid;
-    try {
-      await addDoc(collection(db, 'Boards'), {
-        title: title,
-        description: description,
-        createdAt: new Date().toISOString(),
-        userId: id,
-      });
-    } catch (err) {
-      console.log(err);
-    } finally {
+    const result = await createNewBoard(title, description);
+    if (!result.success) {
+      setError(
+        result.error || 'SomeThing Went Wrong while we trying to sign you up',
+      );
+    }
+    if (result.success) {
       navigation.navigate('Home');
     }
   };
