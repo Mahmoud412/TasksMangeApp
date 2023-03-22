@@ -8,6 +8,7 @@ import RegisterScreen from '../screens/Registration/RegisterScreen';
 import SettingScreen from '../screens/settingsScreen/SettingScreen';
 import BoardDetailsScreen from '../screens/BoardDetails/BoardDetailsScreen';
 import CreateNewGroup from '../components/Group/CreateNewGroup';
+import TasksScreenForm from '../screens/TasksScreen/TasksScreenForm';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -16,6 +17,7 @@ export type RootStackParamList = {
   Setting: undefined;
   Details: {title: string; description: string; boardId: string};
   NewGroup: {boardId: string};
+  TaskForm: undefined;
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -56,6 +58,14 @@ const Route = () => {
           component={CreateNewGroup}
           options={{
             presentation: 'transparentModal',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="TaskForm"
+          component={TasksScreenForm}
+          options={{
+            presentation: 'modal',
             headerShown: false,
           }}
         />

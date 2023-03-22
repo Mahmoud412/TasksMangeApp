@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#252328',
     borderRadius: 10,
     borderColor: '#252328',
+    marginLeft: 5,
   },
   tasktitle: {
     color: 'white',
@@ -35,12 +36,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   subContainer: {
-    margin: 10,
     padding: 15,
     backgroundColor: 'blue',
     borderRadius: 10,
     width: 100,
     height: 50,
+    marginHorizontal: 15,
+    marginTop: 10,
   },
   groupName: {
     color: 'white',

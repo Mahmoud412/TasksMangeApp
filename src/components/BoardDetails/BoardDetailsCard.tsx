@@ -6,20 +6,21 @@ import {data} from '../../assets/data';
 import {groupName} from '../../assets/data';
 import Tasks from './Tasks';
 import styles from './styles';
-import {fetchBoards, useAppDispatch, useAppSelector} from '../../Redux/store';
+import {useAppDispatch, useAppSelector} from '../../Redux/store';
 import {fetchGroups} from '../../Redux/store';
+import {useNavigation} from '@react-navigation/native';
+import {BoardScreenNavigationProps} from '../../navigation/navigationTypes';
 type Props = {
   description: string;
   boardId: string;
 };
 const BoardDetailsCard = ({description, boardId}: Props) => {
   const dispatch = useAppDispatch();
+  const navigation = useNavigation<BoardScreenNavigationProps>();
   const {groups, loading, error} = useAppSelector(state => state.groups);
-  console.log('this is comign from board card details', groups);
-  console.log('card', boardId);
   useEffect(() => {
     dispatch(fetchGroups(boardId));
-  }, [dispatch]);
+  }, [dispatch, groups]);
   return (
     <View>
       <View style={{padding: 10}}>
@@ -30,18 +31,19 @@ const BoardDetailsCard = ({description, boardId}: Props) => {
         horizontal
         showsHorizontalScrollIndicator={false}
         style={styles.ScrollView}>
-        {groups.map((name, index) => (
+        {groups.map((group, index) => (
           <View key={index}>
             <View style={styles.container}>
               <TouchableOpacity
                 style={[
                   styles.subContainer,
-                  {backgroundColor: `${name.color}`},
+                  {backgroundColor: `${group.color}`},
                 ]}>
-                <Text style={styles.groupName}>{name.name}</Text>
+                <Text style={styles.groupName}>{group.name}</Text>
               </TouchableOpacity>
               <View style={styles.iconsContainer}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('TaskForm')}>
                   <Icon
                     style={styles.plusIcon}
                     name="plus"
