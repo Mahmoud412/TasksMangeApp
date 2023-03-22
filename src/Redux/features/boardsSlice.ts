@@ -1,5 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {collection, query, where, getDocs} from 'firebase/firestore/lite';
+import { boards } from '../../../typings';
 import {auth, db} from '../../firebase/config';
 interface boardsState {
   boards: boards[];

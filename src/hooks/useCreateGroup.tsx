@@ -8,7 +8,7 @@ export const useCreateGroup = (): UseNewGroupResult => {
   async function newGroup(
     name: string,
     color: string,
-    Id: string,
+    boardId: string,
   ): Promise<createResult> {
     setLoading(true);
     const id = auth.currentUser?.uid;
@@ -17,7 +17,7 @@ export const useCreateGroup = (): UseNewGroupResult => {
         name: name,
         color: color,
         userId: id,
-        boardId: Id,
+        boardId: boardId,
       });
       setLoading(false);
 

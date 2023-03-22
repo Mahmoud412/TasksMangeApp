@@ -26,6 +26,7 @@ type boards = {
   description: string;
   title: string;
   userId: string;
+  boardId: string;
 };
 type createResult = {
   success: boolean;
@@ -41,4 +42,10 @@ type useCreareNewBoardResult = {
 type UseNewGroupResult = {
   loading: boolean;
   newGroup: (name: string, color: string, Id: string) => Promise<SignUpResult>;
+};
+type groups = {
+  name: string;
+  color: string;
+  userId: string;
+  boardId: string;
 };
