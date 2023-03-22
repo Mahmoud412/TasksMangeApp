@@ -2,18 +2,8 @@ import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Card, Icon} from '@rneui/themed';
 import styles from './styles';
-import {data} from '../../../assets/data';
 import {useNavigation} from '@react-navigation/native';
 import {HomeScreenNavigationProps} from '../header/Header';
-import {doc, getDoc} from 'firebase/firestore';
-import {
-  addDoc,
-  collection,
-  query,
-  where,
-  getDocs,
-} from 'firebase/firestore/lite';
-import {auth, db} from '../../.././firebase/config';
 import {fetchBoards} from '../../../Redux/store';
 import {useAppSelector, useAppDispatch} from '../../../Redux/store';
 const BoardCard = () => {
@@ -32,6 +22,7 @@ const BoardCard = () => {
             navigation.navigate('Details', {
               title: item.title,
               description: item.description,
+              boardId: item.boardId,
             })
           }>
           <Card containerStyle={styles.card}>

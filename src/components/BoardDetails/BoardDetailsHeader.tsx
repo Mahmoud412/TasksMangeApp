@@ -7,9 +7,11 @@ import {BoardScreenNavigationProps} from '../../navigation/navigationTypes';
 
 type Props = {
   title: string;
+  boardId: string;
 };
-const BoardDetailsHeader = ({title}: Props) => {
+const BoardDetailsHeader = ({title, boardId}: Props) => {
   const navigation = useNavigation<BoardScreenNavigationProps>();
+  console.log('coming from header', boardId);
   return (
     <View>
       <View style={styles.headerContainer}>
@@ -23,7 +25,7 @@ const BoardDetailsHeader = ({title}: Props) => {
         </View>
         <TouchableOpacity
           style={{alignSelf: 'center', top: 20}}
-          onPress={() => navigation.navigate('NewGroup')}>
+          onPress={() => navigation.navigate('NewGroup', {boardId: boardId})}>
           <Icon name="plus" type="antdesign" color="white" size={25} />
         </TouchableOpacity>
       </View>

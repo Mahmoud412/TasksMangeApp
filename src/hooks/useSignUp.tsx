@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 import {auth, db} from '.././firebase/config';
 import {setDoc, doc} from 'firebase/firestore/lite';
+import {SignUpResult, UseSignUpResult} from '../../typings';
 
 export const useSignUp = (): UseSignUpResult => {
   const [loading, setLoading] = useState(false);

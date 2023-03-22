@@ -9,13 +9,12 @@ import BoardDetailsCard from '../../components/BoardDetails/BoardDetailsCard';
 type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>;
 const BoardDetailsScreen = () => {
   const {
-    params: {title, description},
+    params: {title, description, boardId},
   } = useRoute<DetailsScreenRouteProp>();
-  console.log(description);
   return (
     <View style={{backgroundColor: '#1C1A1D', flex: 1}}>
-      <BoardDetailsHeader title={title} />
-      <BoardDetailsCard description={description} />
+      <BoardDetailsHeader title={title} boardId={boardId} />
+      <BoardDetailsCard description={description} boardId={boardId} />
     </View>
   );
 };

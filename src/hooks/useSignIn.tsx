@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import {auth} from '.././firebase/config';
+import {SignInResult, UseSignInResult} from '../../typings';
 
 export const useSignIn = (): UseSignInResult => {
   const [loading, setLoading] = useState(false);

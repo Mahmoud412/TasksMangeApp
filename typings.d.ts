@@ -1,3 +1,5 @@
+import {CardPrams} from './src/components/Home/Board/BoardCard';
+
 type SignInResult = {
   success: boolean;
   error?: string | null;
@@ -25,7 +27,7 @@ type boards = {
   title: string;
   userId: string;
 };
-type createNewBoardResult = {
+type createResult = {
   success: boolean;
   error?: string | null;
 };
@@ -35,4 +37,8 @@ type useCreareNewBoardResult = {
     title: string,
     description: string,
   ) => Promise<CreateNewBoardResult>;
+};
+type UseNewGroupResult = {
+  loading: boolean;
+  newGroup: (name: string, color: string, Id: string) => Promise<SignUpResult>;
 };

@@ -14,8 +14,8 @@ export type RootStackParamList = {
   Board: undefined;
   Register: undefined;
   Setting: undefined;
-  Details: {title: string; description: string};
-  NewGroup: undefined;
+  Details: {title: string; description: string; boardId: string};
+  NewGroup: {boardId: string};
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -55,7 +55,7 @@ const Route = () => {
           name="NewGroup"
           component={CreateNewGroup}
           options={{
-            presentation: 'modal',
+            presentation: 'transparentModal',
             headerShown: false,
           }}
         />

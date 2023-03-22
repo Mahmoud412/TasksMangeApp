@@ -1,24 +1,23 @@
 import {useState} from 'react';
+import {createResult, UseNewGroupResult} from '../../typings';
+import {addDoc, collection} from 'firebase/firestore/lite';
 import {auth, db} from '../firebase/config';
-import {addDoc, collection, doc, setDoc} from 'firebase/firestore/lite';
-import {createResult, useCreareNewBoardResult} from '../../typings';
-export const useCreateNewBoard = (): useCreareNewBoardResult => {
-  const [loading, setLoading] = useState(false);
 
-  async function createNewBoard(
-    title: string,
-    description: string,
+export const useCreateGroup = (): UseNewGroupResult => {
+  const [loading, setLoading] = useState(false);
+  async function newGroup(
+    name: string,
+    color: string,
+    Id: string,
   ): Promise<createResult> {
     setLoading(true);
     const id = auth.currentUser?.uid;
     try {
-      const boardRef = doc(collection(db, 'Boards'));
-      await setDoc(boardRef, {
-        title: title,
-        description: description,
-        createdAt: new Date().toString(),
+      await addDoc(collection(db, 'Groups'), {
+        name: name,
+        color: color,
         userId: id,
-        boardId: boardRef.id,
+        boardId: Id,
       });
       setLoading(false);
 
@@ -43,6 +42,6 @@ export const useCreateNewBoard = (): useCreareNewBoardResult => {
 
   return {
     loading,
-    createNewBoard,
+    newGroup,
   };
 };

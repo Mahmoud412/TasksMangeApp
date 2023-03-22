@@ -8,8 +8,10 @@ import Tasks from './Tasks';
 import styles from './styles';
 type Props = {
   description: string;
+  boardId: string;
 };
-const BoardDetailsCard = ({description}: Props) => {
+const BoardDetailsCard = ({description, boardId}: Props) => {
+  console.log(boardId);
   return (
     <View>
       <View style={{padding: 10}}>

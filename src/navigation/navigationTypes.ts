@@ -14,3 +14,7 @@ export type NewBoardScreenNavigationProps = NativeStackNavigationProp<
   RootStackParamList,
   'Board'
 >;
+export type NewGroupScreenNavigationProps = NativeStackNavigationProp<
+  RootStackParamList,
+  'NewGroup'
+>;
