@@ -1,5 +1,5 @@
 import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Card, Icon} from '@rneui/themed';
 import BoardCard from '../Home/Board/BoardCard';
 import {data} from '../../assets/data';
@@ -18,9 +18,27 @@ const BoardDetailsCard = ({description, boardId}: Props) => {
   const dispatch = useAppDispatch();
   const navigation = useNavigation<BoardScreenNavigationProps>();
   const {groups, loading, error} = useAppSelector(state => state.groups);
+  const {current: dataRef} = useRef(groups);
+  const [isMounted, setIsMounted] = useState(true);
   useEffect(() => {
     dispatch(fetchGroups(boardId));
-  }, [dispatch, groups]);
+    setIsMounted(false);
+    const cleanup = () => {
+      setIsMounted(false);
+    };
+
+    let intervalId: number;
+    if (isMounted) {
+      intervalId = setInterval(() => {
+        dispatch(fetchGroups(boardId));
+      }, 1000);
+    }
+
+    return () => {
+      cleanup();
+      clearInterval(intervalId);
+    };
+  }, [dispatch, dataRef]);
   return (
     <View>
       <View style={{padding: 10}}>

@@ -7,12 +7,12 @@ import {getFirestore, collection, getDocs} from 'firebase/firestore/lite';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyC_DAwu9F5aGbq1b0AlzZidDBcKowF3MQU',
-  authDomain: 'mangetasks.firebaseapp.com',
-  projectId: 'mangetasks',
-  storageBucket: 'mangetasks.appspot.com',
-  messagingSenderId: '727441187032',
-  appId: '1:727441187032:web:476dfec0e6df84454637ad',
+  apiKey: 'AIzaSyA6LRrlc1Kiof5pkaeD6jfUtnK5MCw2Mnw',
+  authDomain: 'test2-d8c67.firebaseapp.com',
+  projectId: 'test2-d8c67',
+  storageBucket: 'test2-d8c67.appspot.com',
+  messagingSenderId: '767133285851',
+  appId: '1:767133285851:web:136ce7a08637499a87fbfe',
 };
 
 // Initialize Firebase

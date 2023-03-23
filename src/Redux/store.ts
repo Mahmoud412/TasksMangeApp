@@ -7,6 +7,11 @@ export const store = configureStore({
     boards: boardsSlice.reducer,
     groups: groupsSlice.reducer,
   },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      immutableCheck: {warnAfter: 128},
+      serializableCheck: false,
+    }),
 });
 
 export const useAppDispatch: () => typeof store.dispatch = useDispatch;

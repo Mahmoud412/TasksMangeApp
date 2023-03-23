@@ -1,6 +1,6 @@
 import {View, Text, TouchableOpacity, TextInput} from 'react-native';
 import React from 'react';
-import {Button, Icon, Input} from '@rneui/themed';
+import {Button, Icon} from '@rneui/themed';
 import {styles} from './styles';
 
 const TasksScreenForm = () => {
