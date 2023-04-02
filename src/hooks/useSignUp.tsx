@@ -3,14 +3,14 @@ import React, {useState} from 'react';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 import {auth, db} from '.././firebase/config';
 import {setDoc, doc} from 'firebase/firestore';
-import {SignUpResult, UseSignUpResult} from '../../typings';
+import {createResult, UseSignUpResult} from '../../typings';
 
 export const useSignUp = (): UseSignUpResult => {
   const [loading, setLoading] = useState(false);
   async function signUp(
     email: string,
     password: string,
-  ): Promise<SignUpResult> {
+  ): Promise<createResult> {
     setLoading(true);
 
     try {

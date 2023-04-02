@@ -20,8 +20,6 @@ const BoardDetailsCard = ({description, boardId}: Props) => {
   const dispatch = useAppDispatch();
   const navigation = useNavigation<BoardScreenNavigationProps>();
   const {groups, loading, error} = useAppSelector(state => state.groups);
-  const {current: dataRef} = useRef(groups);
-  const [data, setData] = useState<any[]>([]);
   useEffect(() => {
     dispatch(fetchGroups(boardId));
   }, [dispatch]);
@@ -48,7 +46,9 @@ const BoardDetailsCard = ({description, boardId}: Props) => {
               </TouchableOpacity>
               <View style={styles.iconsContainer}>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('TaskForm')}>
+                  onPress={() =>
+                    navigation.navigate('TaskForm', {groupId: group.groupId})
+                  }>
                   <Icon
                     style={styles.plusIcon}
                     name="plus"

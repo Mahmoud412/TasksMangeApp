@@ -1,21 +1,17 @@
 import {CardPrams} from './src/components/Home/Board/BoardCard';
 
-type SignInResult = {
+type createResult = {
   success: boolean;
   error?: string | null;
 };
 type UseSignInResult = {
   loading: boolean;
-  signIn: (email: string, password: string) => Promise<SignInResult>;
+  signIn: (email: string, password: string) => Promise<createResult>;
 };
 
-type SignUpResult = {
-  success: boolean;
-  error?: string | null;
-};
 type UseSignUpResult = {
   loading: boolean;
-  signUp: (email: string, password: string) => Promise<SignUpResult>;
+  signUp: (email: string, password: string) => Promise<createResult>;
 };
 
 type board = {
@@ -28,24 +24,27 @@ type boards = {
   userId: string;
   boardId: string;
 };
-type createResult = {
-  success: boolean;
-  error?: string | null;
-};
+
 type useCreareNewBoardResult = {
   loading: boolean;
-  createNewBoard: (
-    title: string,
-    description: string,
-  ) => Promise<CreateNewBoardResult>;
+  createNewBoard: (title: string, description: string) => Promise<createResult>;
 };
 type UseNewGroupResult = {
   loading: boolean;
-  newGroup: (name: string, color: string, Id: string) => Promise<SignUpResult>;
+  newGroup: (name: string, color: string, Id: string) => Promise<createResult>;
 };
 type groups = {
   name: string;
   color: string;
   userId: string;
   boardId: string;
+  groupId: string;
+};
+type UseNewTaskResult = {
+  loading: boolean;
+  newTask: (
+    title: string,
+    content: string,
+    groupId: string,
+  ) => Promise<createResult>;
 };

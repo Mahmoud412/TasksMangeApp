@@ -1,14 +1,14 @@
 import {useState} from 'react';
 import {signInWithEmailAndPassword} from 'firebase/auth';
 import {auth} from '.././firebase/config';
-import {SignInResult, UseSignInResult} from '../../typings';
+import {createResult, UseSignInResult} from '../../typings';
 
 export const useSignIn = (): UseSignInResult => {
   const [loading, setLoading] = useState(false);
   async function signIn(
     email: string,
     password: string,
-  ): Promise<SignInResult> {
+  ): Promise<createResult> {
     setLoading(true);
 
     try {

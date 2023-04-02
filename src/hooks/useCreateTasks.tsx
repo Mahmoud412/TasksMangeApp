@@ -1,26 +1,27 @@
 import {useState} from 'react';
-import {createResult, UseNewGroupResult} from '../../typings';
-import {addDoc, collection, doc, setDoc} from 'firebase/firestore';
+import {createResult, UseNewGroupResult, UseNewTaskResult} from '../../typings';
+import {addDoc, collection, setDoc} from 'firebase/firestore';
 import {auth, db} from '../firebase/config';
 
-export const useCreateGroup = (): UseNewGroupResult => {
+export const useCreateNewTasks = (): UseNewTaskResult => {
   const [loading, setLoading] = useState(false);
-  async function newGroup(
-    name: string,
-    color: string,
-    boardId: string,
+  async function newTask(
+    title: string,
+    content: string,
+    groupId: string,
   ): Promise<createResult> {
     setLoading(true);
     const id = auth.currentUser?.uid;
-    const groupRef = doc(collection(db, 'Groups'));
-
     try {
-      await addDoc(collection(db, 'Groups'), {
-        name: name,
-        color: color,
-        userId: id,
-        boardId: boardId,
-        groupId: groupRef.id,
+      await addDoc(collection(db, 'Tasks'), {
+        title: title,
+        content: content,
+        created_by: id,
+        completed_at: null,
+        createdAt: new Date().toString(),
+        updated_at: null,
+        groupId: groupId,
+        completed: false,
       });
       setLoading(false);
 
@@ -45,6 +46,6 @@ export const useCreateGroup = (): UseNewGroupResult => {
 
   return {
     loading,
-    newGroup,
+    newTask,
   };
 };

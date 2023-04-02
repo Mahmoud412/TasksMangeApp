@@ -17,7 +17,7 @@ export type RootStackParamList = {
   Setting: undefined;
   Details: {title: string; description: string; boardId: string};
   NewGroup: {boardId: string};
-  TaskForm: undefined;
+  TaskForm: {groupId: string};
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
