@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {collection, query, where, getDocs, doc} from 'firebase/firestore/lite';
+import {collection, query, where, onSnapshot} from 'firebase/firestore';
 import {groups} from '../../../typings';
 import {auth, db} from '../../firebase/config';
 interface groupsState {
@@ -37,18 +37,17 @@ export const {fetchGroupsStart, fetchGroupsSuccess, fetchGroupsFailure} =
 export const fetchGroups = (BoardId: string) => async (dispatch: any) => {
   try {
     dispatch(fetchGroupsStart());
-    const boardRef = doc(collection(db, 'Boards'));
     const q = query(
       collection(db, 'Groups'),
       where('boardId', '==', `${BoardId}`),
     );
-    const querySnapshot = await getDocs(q);
-    const arr: any[] = [];
-    querySnapshot.forEach(doc => {
-      arr.push(doc.data());
+    onSnapshot(q, querySnapshot => {
+      const data: any[] = [];
+      querySnapshot.forEach(doc => {
+        data.push(doc.data());
+      });
+      dispatch(fetchGroupsSuccess(data));
     });
-    const group = arr;
-    dispatch(fetchGroupsSuccess(group));
   } catch (err) {
     dispatch(fetchGroupsFailure(err));
   }

@@ -2,7 +2,7 @@ import {View, Text} from 'react-native';
 import React, {useState} from 'react';
 import {createUserWithEmailAndPassword} from 'firebase/auth';
 import {auth, db} from '.././firebase/config';
-import {setDoc, doc} from 'firebase/firestore/lite';
+import {setDoc, doc} from 'firebase/firestore';
 import {SignUpResult, UseSignUpResult} from '../../typings';
 
 export const useSignUp = (): UseSignUpResult => {

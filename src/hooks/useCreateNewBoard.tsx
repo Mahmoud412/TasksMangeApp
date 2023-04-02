@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {auth, db} from '../firebase/config';
-import {addDoc, collection, doc, setDoc} from 'firebase/firestore/lite';
+import {addDoc, collection, doc, setDoc} from 'firebase/firestore';
 import {createResult, useCreareNewBoardResult} from '../../typings';
 export const useCreateNewBoard = (): useCreareNewBoardResult => {
   const [loading, setLoading] = useState(false);

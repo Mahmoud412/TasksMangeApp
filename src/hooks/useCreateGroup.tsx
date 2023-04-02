@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {createResult, UseNewGroupResult} from '../../typings';
-import {addDoc, collection} from 'firebase/firestore/lite';
+import {addDoc, collection, setDoc} from 'firebase/firestore';
 import {auth, db} from '../firebase/config';
 
 export const useCreateGroup = (): UseNewGroupResult => {

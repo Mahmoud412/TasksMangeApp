@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {collection, query, where, getDocs} from 'firebase/firestore/lite';
-import { boards } from '../../../typings';
+import {collection, query, where, onSnapshot} from 'firebase/firestore';
+import {boards} from '../../../typings';
 import {auth, db} from '../../firebase/config';
 interface boardsState {
   boards: boards[];
@@ -41,13 +41,13 @@ export const fetchBoards = () => async (dispatch: any) => {
       collection(db, 'Boards'),
       where('userId', '==', auth.currentUser?.uid),
     );
-    const querySnapshot = await getDocs(q);
-    const arr: any[] = [];
-    querySnapshot.forEach(doc => {
-      arr.push(doc.data());
+    onSnapshot(q, querySnapshot => {
+      const data: any[] = [];
+      querySnapshot.forEach(doc => {
+        data.push(doc.data());
+      });
+      dispatch(fetchBoardsSuccess(data));
     });
-    const boards = arr;
-    dispatch(fetchBoardsSuccess(boards));
   } catch (err) {
     dispatch(fetchBoardsFailure(err));
   }

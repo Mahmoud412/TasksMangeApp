@@ -10,6 +10,8 @@ import {useAppDispatch, useAppSelector} from '../../Redux/store';
 import {fetchGroups} from '../../Redux/store';
 import {useNavigation} from '@react-navigation/native';
 import {BoardScreenNavigationProps} from '../../navigation/navigationTypes';
+import {collection, onSnapshot, query, where} from 'firebase/firestore';
+import {db} from '../../firebase/config';
 type Props = {
   description: string;
   boardId: string;
@@ -19,26 +21,11 @@ const BoardDetailsCard = ({description, boardId}: Props) => {
   const navigation = useNavigation<BoardScreenNavigationProps>();
   const {groups, loading, error} = useAppSelector(state => state.groups);
   const {current: dataRef} = useRef(groups);
-  const [isMounted, setIsMounted] = useState(true);
+  const [data, setData] = useState<any[]>([]);
   useEffect(() => {
     dispatch(fetchGroups(boardId));
-    setIsMounted(false);
-    const cleanup = () => {
-      setIsMounted(false);
-    };
+  }, [dispatch]);
 
-    let intervalId: number;
-    if (isMounted) {
-      intervalId = setInterval(() => {
-        dispatch(fetchGroups(boardId));
-      }, 1000);
-    }
-
-    return () => {
-      cleanup();
-      clearInterval(intervalId);
-    };
-  }, [dispatch, dataRef]);
   return (
     <View>
       <View style={{padding: 10}}>
