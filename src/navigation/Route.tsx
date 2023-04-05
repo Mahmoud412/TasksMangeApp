@@ -15,7 +15,12 @@ export type RootStackParamList = {
   Board: undefined;
   Register: undefined;
   Setting: undefined;
-  Details: {title: string; description: string; boardId: string};
+  Details: {
+    title: string;
+    description: string;
+    boardId: string;
+    groupId: string;
+  };
   NewGroup: {boardId: string};
   TaskForm: {groupId: string};
 };

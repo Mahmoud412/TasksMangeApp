@@ -1,17 +1,12 @@
 import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 import {Card, Icon} from '@rneui/themed';
-import BoardCard from '../Home/Board/BoardCard';
-import {data} from '../../assets/data';
-import {groupName} from '../../assets/data';
 import Tasks from './Tasks';
 import styles from './styles';
 import {useAppDispatch, useAppSelector} from '../../Redux/store';
 import {fetchGroups} from '../../Redux/store';
 import {useNavigation} from '@react-navigation/native';
 import {BoardScreenNavigationProps} from '../../navigation/navigationTypes';
-import {collection, onSnapshot, query, where} from 'firebase/firestore';
-import {db} from '../../firebase/config';
 type Props = {
   description: string;
   boardId: string;
@@ -68,7 +63,7 @@ const BoardDetailsCard = ({description, boardId}: Props) => {
               </View>
             </View>
             <View style={{margin: 10, marginVertical: 0}}>
-              <Tasks />
+              <Tasks groupId={group.groupId} />
             </View>
           </View>
         ))}

@@ -15,7 +15,7 @@ export const useCreateGroup = (): UseNewGroupResult => {
     const groupRef = doc(collection(db, 'Groups'));
 
     try {
-      await addDoc(collection(db, 'Groups'), {
+      await setDoc(groupRef, {
         name: name,
         color: color,
         userId: id,

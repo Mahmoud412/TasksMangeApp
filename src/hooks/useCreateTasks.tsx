@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {createResult, UseNewGroupResult, UseNewTaskResult} from '../../typings';
-import {addDoc, collection, setDoc} from 'firebase/firestore';
+import {addDoc, collection, doc, setDoc} from 'firebase/firestore';
 import {auth, db} from '../firebase/config';
 
 export const useCreateNewTasks = (): UseNewTaskResult => {
@@ -12,8 +12,11 @@ export const useCreateNewTasks = (): UseNewTaskResult => {
   ): Promise<createResult> {
     setLoading(true);
     const id = auth.currentUser?.uid;
+
+    const docRef = doc(collection(db, 'Tasks'));
     try {
-      await addDoc(collection(db, 'Tasks'), {
+      await setDoc(docRef, {
+        id: docRef.id,
         title: title,
         content: content,
         created_by: id,

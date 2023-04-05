@@ -17,6 +17,7 @@ export const groupsSlice = createSlice({
   initialState,
   reducers: {
     fetchGroupsStart: state => {
+      state.groups = [];
       state.loading = true;
     },
     fetchGroupsSuccess: (state, action) => {
@@ -28,6 +29,7 @@ export const groupsSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    reset: () => initialState,
   },
 });
 
@@ -35,22 +37,17 @@ export const {fetchGroupsStart, fetchGroupsSuccess, fetchGroupsFailure} =
   groupsSlice.actions;
 
 export const fetchGroups = (BoardId: string) => async (dispatch: any) => {
-  try {
-    dispatch(fetchGroupsStart());
-    const q = query(
-      collection(db, 'Groups'),
-      where('boardId', '==', `${BoardId}`),
-    );
-    onSnapshot(q, querySnapshot => {
-      const data: any[] = [];
-      querySnapshot.forEach(doc => {
-        data.push(doc.data());
-      });
+  dispatch(fetchGroupsStart());
+  onSnapshot(
+    query(collection(db, 'Groups'), where('boardId', '==', BoardId)),
+    querySnapshot => {
+      const data = querySnapshot.docs.map(doc => doc.data());
       dispatch(fetchGroupsSuccess(data));
-    });
-  } catch (err) {
-    dispatch(fetchGroupsFailure(err));
-  }
+    },
+    error => {
+      dispatch(fetchGroupsFailure(error));
+    },
+  );
 };
 
 export default groupsSlice.reducer;
