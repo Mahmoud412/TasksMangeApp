@@ -1,5 +1,6 @@
+import {deleteDoc} from 'firebase/firestore';
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit';
-import {boardsSlice, fetchBoards} from './features/boardsSlice';
+import {boardsSlice, fetchBoards, updateBoard} from './features/boardsSlice';
 import {useDispatch, TypedUseSelectorHook, useSelector} from 'react-redux';
 import {groupsSlice, fetchGroups} from './features/groupSlice';
 export const store = configureStore({
@@ -20,4 +21,4 @@ export const useAppSelector: TypedUseSelectorHook<
 > = useSelector;
 
 export default store;
-export {fetchBoards, fetchGroups};
+export {fetchBoards, fetchGroups, updateBoard};

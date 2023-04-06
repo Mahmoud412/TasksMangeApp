@@ -15,7 +15,7 @@ const HomeScreen = () => {
       <BoardCard />
       <View>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Board')}
+          onPress={() => navigation.navigate('Board', {baordId: ' '})}
           style={styles.buttonContainer}>
           <View style={styles.buttonSubContainer}>
             <View>

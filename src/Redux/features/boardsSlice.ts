@@ -1,5 +1,13 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {collection, query, where, onSnapshot} from 'firebase/firestore';
+import {
+  collection,
+  query,
+  where,
+  onSnapshot,
+  deleteDoc,
+  doc,
+  updateDoc,
+} from 'firebase/firestore';
 import {boards} from '../../../typings';
 import {auth, db} from '../../firebase/config';
 interface boardsState {
@@ -28,11 +36,31 @@ export const boardsSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+    deleteBoardSuccess: (state, action) => {
+      const newBoards = state.boards.filter(
+        board => board.boardId !== action.payload,
+      );
+      state.boards = newBoards;
+      state.loading = false;
+    },
+    updateDocument: (state, action) => {
+      const index = state.boards.findIndex(
+        doc => doc.boardId === action.payload.id,
+      );
+      if (index !== -1) {
+        state.boards[index] = action.payload;
+      }
+    },
   },
 });
 
-export const {fetchBoardsStart, fetchBoardsSuccess, fetchBoardsFailure} =
-  boardsSlice.actions;
+export const {
+  fetchBoardsStart,
+  fetchBoardsSuccess,
+  fetchBoardsFailure,
+  deleteBoardSuccess,
+  updateDocument,
+} = boardsSlice.actions;
 
 export const fetchBoards = () => async (dispatch: any) => {
   dispatch(fetchBoardsStart());
@@ -50,5 +78,21 @@ export const fetchBoards = () => async (dispatch: any) => {
     },
   );
 };
+export const deleteBoard = (boardId: string) => async (dispatch: any) => {
+  await deleteDoc(doc(db, 'Boards', `${boardId}`));
+  dispatch(deleteBoardSuccess(boardId));
+};
+
+export const updateBoard =
+  (boardId: string, title: string, description: string) =>
+  async (dispatch: any) => {
+    const docRef = doc(db, 'Boards', `${boardId}`);
+    await updateDoc(docRef, {
+      title: title,
+      description: description,
+      createdAt: new Date().toString(),
+    });
+    dispatch(updateDocument(boardId));
+  };
 
 export default boardsSlice.reducer;

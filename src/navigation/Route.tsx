@@ -12,7 +12,7 @@ import TasksScreenForm from '../screens/TasksScreen/TasksScreenForm';
 
 export type RootStackParamList = {
   Home: undefined;
-  Board: undefined;
+  Board: {baordId: string};
   Register: undefined;
   Setting: undefined;
   Details: {
