@@ -3,7 +3,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {Card, Icon} from '@rneui/themed';
 import Tasks from './Tasks';
 import styles from './styles';
-import {useAppDispatch, useAppSelector} from '../../Redux/store';
+import {deleteGroup, useAppDispatch, useAppSelector} from '../../Redux/store';
 import {fetchGroups} from '../../Redux/store';
 import {useNavigation} from '@react-navigation/native';
 import {BoardScreenNavigationProps} from '../../navigation/navigationTypes';
@@ -52,10 +52,11 @@ const BoardDetailsCard = ({description, boardId}: Props) => {
                     size={30}
                   />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => dispatch(deleteGroup(group.groupId))}>
                   <Icon
-                    name="options"
-                    type="simple-line-icon"
+                    name="delete"
+                    type="antdesign"
                     color="white"
                     size={25}
                   />

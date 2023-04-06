@@ -1,5 +1,12 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {collection, query, where, onSnapshot} from 'firebase/firestore';
+import {
+  collection,
+  query,
+  where,
+  onSnapshot,
+  deleteDoc,
+  doc,
+} from 'firebase/firestore';
 import {groups} from '../../../typings';
 import {auth, db} from '../../firebase/config';
 interface groupsState {
@@ -48,6 +55,9 @@ export const fetchGroups = (BoardId: string) => async (dispatch: any) => {
       dispatch(fetchGroupsFailure(error));
     },
   );
+};
+export const deleteGroup = (groupId: string) => async (dispatch: any) => {
+  await deleteDoc(doc(db, 'Groups', `${groupId}`));
 };
 
 export default groupsSlice.reducer;
