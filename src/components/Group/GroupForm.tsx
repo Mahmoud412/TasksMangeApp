@@ -18,9 +18,9 @@ import {useCreateGroup} from '../../hooks/useCreateGroup';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {RootStackParamList} from '../../navigation/Route';
 import {updateGroup, useAppDispatch} from '../../Redux/store';
-type NewGroupScreenRouteProp = RouteProp<RootStackParamList, 'NewGroup'>;
+type NewGroupScreenRouteProp = RouteProp<RootStackParamList, 'GroupForm'>;
 
-const CreateNewGroup = () => {
+const GroupForm = () => {
   const dispatch = useAppDispatch();
   const {
     params: {boardId, groupId},
@@ -134,4 +134,4 @@ const CreateNewGroup = () => {
   );
 };
 
-export default CreateNewGroup;
+export default GroupForm;

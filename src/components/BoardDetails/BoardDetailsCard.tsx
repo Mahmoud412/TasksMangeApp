@@ -34,7 +34,7 @@ const BoardDetailsCard = ({description, boardId}: Props) => {
             <View style={styles.container}>
               <TouchableOpacity
                 onPress={() =>
-                  navigation.navigate('NewGroup', {
+                  navigation.navigate('GroupForm', {
                     boardId: group.boardId,
                     groupId: group.groupId,
                   })

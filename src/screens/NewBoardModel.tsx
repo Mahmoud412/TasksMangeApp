@@ -1,9 +1,9 @@
 import {View, Text} from 'react-native';
 import React from 'react';
-import NewboardForm from '../components/Home/Board/NewboardForm';
 import FormsHeader from '../components/FormsHeader';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {RootStackParamList} from '../navigation/Route';
+import BoardForm from '../components/Home/Board/BoardForm';
 
 type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Board'>;
 
@@ -14,8 +14,8 @@ const NewBoardModel = () => {
   console.log(baordId.length);
   return (
     <View style={{backgroundColor: '#1C1A1D', flex: 1}}>
-      <FormsHeader />
-      <NewboardForm baordId={baordId} />
+      <FormsHeader boardId={baordId} />
+      <BoardForm baordId={baordId} />
     </View>
   );
 };

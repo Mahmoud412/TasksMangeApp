@@ -6,12 +6,8 @@ import {NewBoardScreenNavigationProps} from '../../../navigation/navigationTypes
 import styles from './styles';
 import {useCreateNewBoard} from '../../../hooks/useCreateNewBoard';
 import {updateBoard, useAppDispatch} from '../../../Redux/store';
-type Props = {
-  boardId: string;
-};
-const NewboardForm = ({baordId}: any) => {
+const BoardForm = ({baordId}: string | any) => {
   const dispatch = useAppDispatch();
-  console.log('a7a', baordId.length);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const {loading, createNewBoard} = useCreateNewBoard();
@@ -32,6 +28,20 @@ const NewboardForm = ({baordId}: any) => {
       navigation.navigate('Home');
     }
   };
+  if (loading) {
+    return (
+      <View>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
+  if (error) {
+    return (
+      <View>
+        <Text>{error}</Text>
+      </View>
+    );
+  }
 
   return (
     <View>
@@ -69,4 +79,4 @@ const NewboardForm = ({baordId}: any) => {
   );
 };
 
-export default NewboardForm;
+export default BoardForm;

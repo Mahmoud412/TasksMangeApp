@@ -26,7 +26,7 @@ const BoardDetailsHeader = ({title, boardId}: Props) => {
         <TouchableOpacity
           style={{alignSelf: 'center', top: 20}}
           onPress={() =>
-            navigation.navigate('NewGroup', {boardId: boardId, groupId: ''})
+            navigation.navigate('GroupForm', {boardId: boardId, groupId: ''})
           }>
           <Icon name="plus" type="antdesign" color="white" size={25} />
         </TouchableOpacity>

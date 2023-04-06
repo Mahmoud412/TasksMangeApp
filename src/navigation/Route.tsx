@@ -7,8 +7,8 @@ import NewBoardModel from '../screens/NewBoardModel';
 import RegisterScreen from '../screens/Registration/RegisterScreen';
 import SettingScreen from '../screens/settingsScreen/SettingScreen';
 import BoardDetailsScreen from '../screens/BoardDetails/BoardDetailsScreen';
-import CreateNewGroup from '../components/Group/CreateNewGroup';
 import TasksScreenForm from '../screens/TasksScreen/TasksScreenForm';
+import GroupForm from '../components/Group/GroupForm';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -20,7 +20,7 @@ export type RootStackParamList = {
     description: string;
     boardId: string;
   };
-  NewGroup: {boardId: string; groupId: string};
+  GroupForm: {boardId: string; groupId: string};
   TaskForm: {groupId: string};
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -58,8 +58,8 @@ const Route = () => {
           }}
         />
         <Stack.Screen
-          name="NewGroup"
-          component={CreateNewGroup}
+          name="GroupForm"
+          component={GroupForm}
           options={{
             presentation: 'transparentModal',
             headerShown: false,
