@@ -25,7 +25,9 @@ const BoardDetailsHeader = ({title, boardId}: Props) => {
         </View>
         <TouchableOpacity
           style={{alignSelf: 'center', top: 20}}
-          onPress={() => navigation.navigate('NewGroup', {boardId: boardId})}>
+          onPress={() =>
+            navigation.navigate('NewGroup', {boardId: boardId, groupId: ''})
+          }>
           <Icon name="plus" type="antdesign" color="white" size={25} />
         </TouchableOpacity>
       </View>

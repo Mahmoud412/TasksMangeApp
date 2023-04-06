@@ -33,6 +33,12 @@ const BoardDetailsCard = ({description, boardId}: Props) => {
           <View key={index}>
             <View style={styles.container}>
               <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('NewGroup', {
+                    boardId: group.boardId,
+                    groupId: group.groupId,
+                  })
+                }
                 style={[
                   styles.subContainer,
                   {backgroundColor: `${group.color}`},

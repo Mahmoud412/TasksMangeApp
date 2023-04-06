@@ -6,6 +6,7 @@ import {
   onSnapshot,
   deleteDoc,
   doc,
+  updateDoc,
 } from 'firebase/firestore';
 import {groups} from '../../../typings';
 import {auth, db} from '../../firebase/config';
@@ -59,5 +60,15 @@ export const fetchGroups = (BoardId: string) => async (dispatch: any) => {
 export const deleteGroup = (groupId: string) => async (dispatch: any) => {
   await deleteDoc(doc(db, 'Groups', `${groupId}`));
 };
+
+export const updateGroup =
+  (name: string, color: string, groupId: string) => async (dispatch: any) => {
+    console.log('slice id', groupId);
+    const docRef = doc(db, 'Groups', `${groupId}`);
+    await updateDoc(docRef, {
+      name: name,
+      color: color,
+    });
+  };
 
 export default groupsSlice.reducer;

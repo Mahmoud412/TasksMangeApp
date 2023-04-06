@@ -20,7 +20,7 @@ export type RootStackParamList = {
     description: string;
     boardId: string;
   };
-  NewGroup: {boardId: string};
+  NewGroup: {boardId: string; groupId: string};
   TaskForm: {groupId: string};
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
