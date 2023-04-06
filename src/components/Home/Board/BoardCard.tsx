@@ -10,27 +10,9 @@ const BoardCard = () => {
   const dispatch = useAppDispatch();
   const navigation = useNavigation<HomeScreenNavigationProps>();
   const {boards, loading, error} = useAppSelector(state => state.boards);
-  const [isMounted, setIsMounted] = useState(true);
-
   useEffect(() => {
     dispatch(fetchBoards());
-
-    const cleanup = () => {
-      setIsMounted(false);
-    };
-
-    let intervalId: number;
-    if (isMounted) {
-      intervalId = setInterval(() => {
-        dispatch(fetchBoards());
-      }, 1000);
-    }
-
-    return () => {
-      cleanup();
-      clearInterval(intervalId);
-    };
-  }, [dispatch, isMounted]);
+  }, [dispatch]);
   return (
     <ScrollView>
       {boards.map(item => (

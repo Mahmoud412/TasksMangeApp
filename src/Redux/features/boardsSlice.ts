@@ -35,22 +35,20 @@ export const {fetchBoardsStart, fetchBoardsSuccess, fetchBoardsFailure} =
   boardsSlice.actions;
 
 export const fetchBoards = () => async (dispatch: any) => {
-  try {
-    dispatch(fetchBoardsStart());
-    const q = query(
+  dispatch(fetchBoardsStart());
+  onSnapshot(
+    query(
       collection(db, 'Boards'),
       where('userId', '==', auth.currentUser?.uid),
-    );
-    onSnapshot(q, querySnapshot => {
-      const data: any[] = [];
-      querySnapshot.forEach(doc => {
-        data.push(doc.data());
-      });
+    ),
+    querySnapshot => {
+      const data = querySnapshot.docs.map(doc => doc.data());
       dispatch(fetchBoardsSuccess(data));
-    });
-  } catch (err) {
-    dispatch(fetchBoardsFailure(err));
-  }
+    },
+    error => {
+      dispatch(fetchBoardsFailure(error));
+    },
+  );
 };
 
 export default boardsSlice.reducer;

@@ -19,7 +19,6 @@ export type RootStackParamList = {
     title: string;
     description: string;
     boardId: string;
-    groupId: string;
   };
   NewGroup: {boardId: string};
   TaskForm: {groupId: string};
