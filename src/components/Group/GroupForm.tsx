@@ -18,6 +18,8 @@ import {useCreateGroup} from '../../hooks/useCreateGroup';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {RootStackParamList} from '../../navigation/Route';
 import {updateGroup, useAppDispatch} from '../../Redux/store';
+import LoadingScreen from '../../screens/LoadingScreen';
+import ErrorScreen from '../../screens/ErrorScreen';
 type NewGroupScreenRouteProp = RouteProp<RootStackParamList, 'GroupForm'>;
 
 const GroupForm = () => {
@@ -50,18 +52,10 @@ const GroupForm = () => {
   };
 
   if (loading) {
-    return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
-    );
+    return <LoadingScreen />;
   }
   if (error) {
-    return (
-      <View>
-        <Text>{error}</Text>
-      </View>
-    );
+    return <ErrorScreen />;
   }
 
   return (

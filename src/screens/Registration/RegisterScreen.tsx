@@ -9,6 +9,8 @@ import {useSignIn} from '../../hooks/useSignIn';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../navigation/Route';
+import LoadingScreen from '../LoadingScreen';
+import ErrorScreen from '../ErrorScreen';
 export type RegisterScreenNavigationProps = NativeStackNavigationProp<
   RootStackParamList,
   'Register'
@@ -44,11 +46,10 @@ const RegisterScreen = () => {
     }
   };
   if (loading) {
-    return (
-      <View>
-        <Text>Loading</Text>
-      </View>
-    );
+    return <LoadingScreen />;
+  }
+  if (error) {
+    return <ErrorScreen />;
   }
   return (
     <SafeAreaView style={styles.container}>

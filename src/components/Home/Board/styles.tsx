@@ -71,6 +71,12 @@ const styles = StyleSheet.create({
     marginRight: 10,
     backgroundColor: '#c0a8ea',
   },
+  noDataText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
 
 export default styles;

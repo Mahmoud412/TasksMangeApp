@@ -6,6 +6,8 @@ import {NewBoardScreenNavigationProps} from '../../../navigation/navigationTypes
 import styles from './styles';
 import {useCreateNewBoard} from '../../../hooks/useCreateNewBoard';
 import {updateBoard, useAppDispatch} from '../../../Redux/store';
+import LoadingScreen from '../../../screens/LoadingScreen';
+import ErrorScreen from '../../../screens/ErrorScreen';
 const BoardForm = ({baordId}: string | any) => {
   const dispatch = useAppDispatch();
   const [title, setTitle] = useState('');
@@ -29,18 +31,10 @@ const BoardForm = ({baordId}: string | any) => {
     }
   };
   if (loading) {
-    return (
-      <View>
-        <Text>Loading...</Text>
-      </View>
-    );
+    return <LoadingScreen />;
   }
   if (error) {
-    return (
-      <View>
-        <Text>{error}</Text>
-      </View>
-    );
+    return <ErrorScreen />;
   }
 
   return (

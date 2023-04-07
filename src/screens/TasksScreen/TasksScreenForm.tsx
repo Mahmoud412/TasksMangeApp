@@ -6,6 +6,8 @@ import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import {useCreateNewTasks} from '../../hooks/useCreateTasks';
 import {RootStackParamList} from '../../navigation/Route';
 import {NewTaskScreenNavigationProps} from '../../navigation/navigationTypes';
+import LoadingScreen from '../LoadingScreen';
+import ErrorScreen from '../ErrorScreen';
 type TaskScreenRouteProp = RouteProp<RootStackParamList, 'TaskForm'>;
 
 const TasksScreenForm = () => {
@@ -31,6 +33,14 @@ const TasksScreenForm = () => {
       navigation.goBack();
     }
   };
+
+  if (loading) {
+    return <LoadingScreen />;
+  }
+
+  if (error) {
+    return <ErrorScreen />;
+  }
 
   return (
     <View style={styles.container}>

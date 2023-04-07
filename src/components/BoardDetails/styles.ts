@@ -78,6 +78,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#4A4156',
     borderRadius: 10,
   },
+  noDataText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
 
 export default styles;
