@@ -13,7 +13,7 @@ export type SettingsScreenNavigationProps = NativeStackNavigationProp<
   RootStackParamList,
   'Setting'
 >;
-const SettingScreen = () => {
+const SettingScreen: React.FC = () => {
   const navigation = useNavigation<SettingsScreenNavigationProps>();
   const SginOutUser = () => {
     signOut(auth).then(res => {

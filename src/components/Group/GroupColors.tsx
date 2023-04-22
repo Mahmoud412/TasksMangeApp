@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {colors} from '../../assets/ColorsData';
 import {Card, Icon} from '@rneui/themed';
 import {styles} from './styles';
-const GroupColors = () => {
+const GroupColors: React.FC = () => {
   const [iSselected, setIsSelected] = useState<any>();
   const numColumns = Math.ceil(colors.length / 6);
   return (

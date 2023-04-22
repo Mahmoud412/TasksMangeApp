@@ -15,7 +15,7 @@ export type RegisterScreenNavigationProps = NativeStackNavigationProp<
   RootStackParamList,
   'Register'
 >;
-const RegisterScreen = () => {
+const RegisterScreen: React.FC = () => {
   const {loading, signUp} = useSignUp();
   const {signIn} = useSignIn();
   const [email, setEmail] = useState('');

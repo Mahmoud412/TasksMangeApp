@@ -5,7 +5,6 @@ import {
   TextInput,
   FlatList,
   TouchableOpacity,
-  StyleSheet,
 } from 'react-native';
 import React, {useState} from 'react';
 import {Button, Icon} from '@rneui/themed';
@@ -22,7 +21,7 @@ import LoadingScreen from '../../screens/LoadingScreen';
 import ErrorScreen from '../../screens/ErrorScreen';
 type NewGroupScreenRouteProp = RouteProp<RootStackParamList, 'GroupForm'>;
 
-const GroupForm = () => {
+const GroupForm: React.FC = () => {
   const dispatch = useAppDispatch();
   const {
     params: {boardId, groupId},
@@ -119,7 +118,7 @@ const GroupForm = () => {
             color={'#c0a8ea'}
             title="Submit"
             containerStyle={{borderRadius: 15}}
-            disabled={!name}
+            disabled={!name || !color}
             disabledStyle={{backgroundColor: 'gray'}}
           />
         </View>

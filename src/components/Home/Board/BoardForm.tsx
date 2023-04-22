@@ -8,12 +8,17 @@ import {useCreateNewBoard} from '../../../hooks/useCreateNewBoard';
 import {updateBoard, useAppDispatch} from '../../../Redux/store';
 import LoadingScreen from '../../../screens/LoadingScreen';
 import ErrorScreen from '../../../screens/ErrorScreen';
-const BoardForm = ({baordId}: string | any) => {
+
+type Props = {
+  baordId: string | any;
+};
+const BoardForm: React.FC<Props> = ({baordId}: Props) => {
   const dispatch = useAppDispatch();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const {loading, createNewBoard} = useCreateNewBoard();
   const [error, setError] = useState('');
+  console.log(error);
   const navigation = useNavigation<NewBoardScreenNavigationProps>();
   const handleUpdate = () => {
     dispatch(updateBoard(baordId, title, description));
@@ -23,7 +28,8 @@ const BoardForm = ({baordId}: string | any) => {
     const result = await createNewBoard(title, description);
     if (!result.success) {
       setError(
-        result.error || 'SomeThing Went Wrong while we trying to sign you up',
+        result.error ||
+          'SomeThing Went Wrong while we trying to create the board',
       );
     }
     if (result.success) {

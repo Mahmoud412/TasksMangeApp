@@ -10,7 +10,7 @@ import LoadingScreen from '../LoadingScreen';
 import ErrorScreen from '../ErrorScreen';
 type TaskScreenRouteProp = RouteProp<RootStackParamList, 'TaskForm'>;
 
-const TasksScreenForm = () => {
+const TasksScreenForm: React.FC = () => {
   const {
     params: {groupId},
   } = useRoute<TaskScreenRouteProp>();
@@ -76,6 +76,7 @@ const TasksScreenForm = () => {
         title="Create"
         buttonStyle={styles.button}
         onPress={handleCreateNewTask}
+        disabled={!title || !content}
       />
     </View>
   );

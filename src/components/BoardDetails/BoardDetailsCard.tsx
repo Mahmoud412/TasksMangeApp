@@ -14,7 +14,7 @@ type Props = {
   description: string;
   boardId: string;
 };
-const BoardDetailsCard = ({description, boardId}: Props) => {
+const BoardDetailsCard: React.FC<Props> = ({description, boardId}: Props) => {
   const dispatch = useAppDispatch();
   const navigation = useNavigation<BoardScreenNavigationProps>();
   const {groups, loading, error} = useAppSelector(state => state.groups);
@@ -40,7 +40,7 @@ const BoardDetailsCard = ({description, boardId}: Props) => {
           showsHorizontalScrollIndicator={false}
           style={styles.ScrollView}>
           {groups.map((group, index) => (
-            <View key={index}>
+            <View key={group.groupId}>
               <View style={styles.container}>
                 <TouchableOpacity
                   onPress={() =>

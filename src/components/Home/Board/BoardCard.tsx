@@ -11,11 +11,11 @@ import LoadingScreen from '../../../screens/LoadingScreen';
 import ErrorScreen from '../../../screens/ErrorScreen';
 import ArrowDown from '../../ArrowDown';
 
-const BoardCard = () => {
+const BoardCard: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigation = useNavigation<HomeScreenNavigationProps>();
   const {boards, loading, error} = useAppSelector(state => state.boards);
-
+  console.log('boards', boards);
   const handleDelete = async (boardId: string) => {
     dispatch(deleteBoard(boardId));
   };
@@ -27,9 +27,9 @@ const BoardCard = () => {
     return <LoadingScreen />;
   }
 
-  if (error) {
-    return <ErrorScreen />;
-  }
+  // if (error) {
+  //   return <ErrorScreen />;
+  // }
   return (
     <ScrollView>
       {boards.length > 0 ? (

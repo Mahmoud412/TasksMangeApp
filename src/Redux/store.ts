@@ -8,10 +8,17 @@ import {
   deleteGroup,
   updateGroup,
 } from './features/groupSlice';
+import {
+  tasksSlice,
+  fetchTasks,
+  deleteTask,
+  updateTask,
+} from './features/TasksSlice';
 export const store = configureStore({
   reducer: {
     boards: boardsSlice.reducer,
     groups: groupsSlice.reducer,
+    tasks: tasksSlice.reducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -26,4 +33,13 @@ export const useAppSelector: TypedUseSelectorHook<
 > = useSelector;
 
 export default store;
-export {fetchBoards, fetchGroups, updateBoard, deleteGroup, updateGroup};
+export {
+  fetchBoards,
+  fetchGroups,
+  updateBoard,
+  deleteGroup,
+  updateGroup,
+  fetchTasks,
+  deleteTask,
+  updateTask,
+};

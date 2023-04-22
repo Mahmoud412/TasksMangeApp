@@ -7,7 +7,7 @@ import BoardForm from '../components/Home/Board/BoardForm';
 
 type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Board'>;
 
-const NewBoardModel = () => {
+const NewBoardModel: React.FC = () => {
   const {
     params: {baordId},
   } = useRoute<DetailsScreenRouteProp>();

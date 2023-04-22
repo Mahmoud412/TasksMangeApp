@@ -9,6 +9,7 @@ import SettingScreen from '../screens/settingsScreen/SettingScreen';
 import BoardDetailsScreen from '../screens/BoardDetails/BoardDetailsScreen';
 import TasksScreenForm from '../screens/TasksScreen/TasksScreenForm';
 import GroupForm from '../components/Group/GroupForm';
+import TaskUpdateForm from '../components/Tasks/TaskUpdateForm';
 
 export type RootStackParamList = {
   Home: undefined;
@@ -22,6 +23,7 @@ export type RootStackParamList = {
   };
   GroupForm: {boardId: string; groupId: string};
   TaskForm: {groupId: string};
+  updateTask: {taskId: string; taskTitle: string; taskContent: string};
 };
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -68,6 +70,14 @@ const Route = () => {
         <Stack.Screen
           name="TaskForm"
           component={TasksScreenForm}
+          options={{
+            presentation: 'modal',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="updateTask"
+          component={TaskUpdateForm}
           options={{
             presentation: 'modal',
             headerShown: false,

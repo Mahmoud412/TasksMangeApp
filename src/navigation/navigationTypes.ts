@@ -16,9 +16,13 @@ export type NewBoardScreenNavigationProps = NativeStackNavigationProp<
 >;
 export type NewGroupScreenNavigationProps = NativeStackNavigationProp<
   RootStackParamList,
-  'NewGroup'
+  'GroupForm'
 >;
 export type NewTaskScreenNavigationProps = NativeStackNavigationProp<
   RootStackParamList,
   'TaskForm'
+>;
+export type TaskUpdateScreenNavigationProps = NativeStackNavigationProp<
+  RootStackParamList,
+  'updateTask'
 >;

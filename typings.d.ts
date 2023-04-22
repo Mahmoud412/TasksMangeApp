@@ -49,3 +49,12 @@ type UseNewTaskResult = {
     groupId: string,
   ) => Promise<createResult>;
 };
+
+type tasks = {
+  title: string;
+  createdAt: string;
+  content: string;
+  completed: boolean;
+  id: string;
+  groupId: string;
+};

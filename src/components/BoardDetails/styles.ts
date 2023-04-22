@@ -84,6 +84,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  completed: {
+    textDecorationLine: 'line-through',
+    textDecorationColor: 'white',
+    textDecorationStyle: 'solid',
+  },
 });
 
 export default styles;

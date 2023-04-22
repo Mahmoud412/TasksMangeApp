@@ -7,7 +7,7 @@ import {Icon} from '@rneui/themed';
 import {useNavigation} from '@react-navigation/native';
 import {HomeScreenNavigationProps} from '../navigation/navigationTypes';
 
-const HomeScreen = () => {
+const HomeScreen: React.FC = () => {
   const navigation = useNavigation<HomeScreenNavigationProps>();
   return (
     <SafeAreaView style={{backgroundColor: '#1C1A1D', flex: 1}}>
@@ -15,7 +15,7 @@ const HomeScreen = () => {
       <BoardCard />
       <View>
         <TouchableOpacity
-          onPress={() => navigation.navigate('Board', {baordId: ' '})}
+          onPress={() => navigation.navigate('Board', {baordId: ''})}
           style={styles.buttonContainer}>
           <View style={styles.buttonSubContainer}>
             <View>

@@ -9,7 +9,7 @@ type Props = {
   title: string;
   boardId: string;
 };
-const BoardDetailsHeader = ({title, boardId}: Props) => {
+const BoardDetailsHeader: React.FC<Props> = ({title, boardId}: Props) => {
   const navigation = useNavigation<BoardScreenNavigationProps>();
   console.log('coming from header', boardId);
   return (

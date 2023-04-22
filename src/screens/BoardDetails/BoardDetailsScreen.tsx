@@ -7,7 +7,7 @@ import BoardDetailsHeader from '../../components/BoardDetails/BoardDetailsHeader
 import BoardDetailsCard from '../../components/BoardDetails/BoardDetailsCard';
 
 type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>;
-const BoardDetailsScreen = () => {
+const BoardDetailsScreen: React.FC = () => {
   const {
     params: {title, description, boardId},
   } = useRoute<DetailsScreenRouteProp>();
