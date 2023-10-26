@@ -1,18 +1,17 @@
 # TasksMangeApp
 
 ## ScreenShots
-<img src="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/3efca38d-866f-4b06-9d5b-96813e6cf632" width="200" heghit="300">
-<img src="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/548ab1db-a4c9-4b4e-9abb-3e4a3495cc44" width="200" heghit="300">
-<img src="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/e5ccb3d6-eb78-40a1-a29a-b5996e45e20e"width="200" heghit="300">
-<img src = "https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/63058b9e-715b-4763-bf1b-6325aaddc50e" width="200" heghit="300">
-<img src="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/bb02fa81-56a9-4681-88b5-c2dc8a4f2364" width="200" heghit="300">
-<img src="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/3da7afda-66b1-444e-8840-3f507062d91d" width="200" heghit="300">
-<img src="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/28707c68-e8a8-4a2f-aada-75e515f4848d" width="200" heghit="300">
-<img src ="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/baed65b4-221e-466e-9c9d-9b050622bd68" width="200" heghit="300">
-<img src ="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/873785c8-d81e-42b2-a1f1-8fa2183f2809" width="200" heghit="300">
-<img src = "https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/94253a30-e10e-4be7-8e8b-1add7bbf0aea" width="200" heghit="300">
-<img src = "https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/87067048-2ea9-4019-8d15-e6795be5fb86" width="200" heghit="300">
 
+<img src="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/91670df7-f897-4715-980e-3b5c2b784f15" width="200" heghit="300" >
+<img src ="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/a1c3a427-bdc2-41ba-a638-0a2110c6ddb5"  width="200" heghit="300">
+<img src="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/139fc6af-f6f0-43b2-ba94-17c29608d502"  width="200" heghit="300">
+<img src="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/20450c47-db5b-4680-a2b7-9d0dbd17b248"  width="200" heghit="300">
+<img src ="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/391a5798-e04c-45d7-a4af-790e51bc2d59" width="200" heghit="300">
+<img src = "https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/36132a54-f493-4fbe-94cc-85451fa55daa"  width="200" heghit="300"> 
+<img src ="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/6fbf35e4-fc98-4f7d-9f5b-4432331bc159"  width="200" heghit="300">
+<img src = "https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/bb0471bb-2ae8-4ea7-92d2-83436f81121e"  width="200" heghit="300">
+<img src ="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/5243d06d-a5a4-4f42-b7b1-e1e37134f35e"  width="200" heghit="300">
+<img src ="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/7a672b2e-7f1e-4196-9a0d-df6544562cba"  width="200" heghit="300">
 
 # Libraries and SDKs Used
 - react-navigation/native
