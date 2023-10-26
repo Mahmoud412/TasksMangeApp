@@ -12,3 +12,18 @@
 <img src ="https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/873785c8-d81e-42b2-a1f1-8fa2183f2809" width="200" heghit="300">
 <img src = "https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/94253a30-e10e-4be7-8e8b-1add7bbf0aea" width="200" heghit="300">
 <img src = "https://github.com/Mahmoud412/TasksMangeApp/assets/52178976/87067048-2ea9-4019-8d15-e6795be5fb86" width="200" heghit="300">
+
+
+# Libraries and SDKs Used
+- react-navigation/native
+- react-navigation/native-stack
+- reduxjs/toolkit
+- rneui/base
+- rneui/themed
+- firebase
+- lottie-react-native
+- react-native-elements
+- react-native-safe-area-context
+- react-native-screens
+- react-native-vector-icons
+- react-redux
